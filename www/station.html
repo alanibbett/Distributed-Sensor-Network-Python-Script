@@ -1,0 +1,54 @@
+ 
+<!DOCTYPE html> 
+<html>
+<head> 
+<title>WifiScanMap | wifis</title> 
+<script src="/js/components/jquery/dist/jquery.js"></script>
+<script src="/js/components/angular/angular.js"></script>
+<script src="/js/components/Chart.js/Chart.js"></script>
+<script src="/js/components/angular-chart.js/dist/angular-chart.js"></script>
+<script src="/js/components/ol3/ol.js"></script>
+<script src="/js/components/jquery-ui/jquery-ui.js"></script>
+<script src="/js/components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/station/controller.js"></script>
+<link rel="stylesheet" href="/js/components/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/js/components/angular-chart.js/dist/angular-chart.min.css" />
+<link rel="stylesheet" href="/css/main.css" />
+<link rel="stylesheet" href="/css/station.css" />
+</head> 
+<body ng-app="ScanMap"> 
+	<div ng-controller="stationController">
+ 
+ 
+ 
+ <div >
+  <div id="loading-container" style="display:none;" >
+  <div id="loading" ><img src="/img/loading.gif" alt="loading" /></div>
+ </div>
+
+      <div id="left-pannel">
+      </div>
+      <div id="pannel">
+        <div id="control">
+          <div ng-class="{'label label-success':link_status, 'label label-danger':!link_status}" >Service</div><br/>
+          <input type="text" ng-model="bssid" /><button ng-click="update_station()" >Search</button><br/>
+        </div>
+        <div class="device-type" ng-class="{'android':station.manufacturer == 'Google', 'apple':station.manufacturer == 'Apple', 'microsoft':station.manufacturer == 'Microsof', 'mobile':station.mobile, 'no-mobile':!station.mobile}" ></div>
+        {{station.manufacturer}}
+        <ul>
+          <li ng-repeat="probe in station.probes" >{{probe}}</li>
+        </ul>
+        <canvas id="station-view-days" class="chart chart-bar"
+          chart-data="data" chart-labels="labels"> chart-series="series"
+        </canvas>
+        <ul>
+          <li ng-repeat="dns in station.users_dns" ><a href="http://{{dns.host}}">{{dns.host}}</a></li>
+        </ul>
+      </div>
+      <div id="map"></div>
+
+
+</div>
+</body> 
+</html>

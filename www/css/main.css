@@ -1,0 +1,78 @@
+html, body {
+ height:100%;
+ width:100%;
+ margin:0px;
+}
+
+ .device-type {
+   height:16px;
+   width:16px;
+   background-size: 16px 16px;
+   background-repeat: no-repeat;
+   float:left;
+   margin-right:2%;
+ }
+ 
+ .android {
+   background-image:url(/img/android.png);
+ }
+ 
+ .apple {
+   background-image:url(/img/apple.png);
+ }
+ 
+ .mobile {
+   background-image:url(/img/smartphone.png);
+ }
+ 
+ .computer {
+   background-image:url(/img/computer.png);
+ }
+
+ .audio {
+   background-image:url(/img/headset.png);
+ }
+
+ .audio {
+   background-image:url(/img/health.png);
+ }
+ 
+ .no-mobile {
+ }
+ 
+ul {
+  list-style-type: none;
+}
+
+.progress-bar {
+  background-color:#CCE6FF;
+  color:black;
+}
+
+a, a:visited, a:hover {
+ color:black; 
+}
+
+.open {
+  color:green; 
+}
+
+.secure {
+  color:red; 
+}
+
+#loading-container {
+  position:absolute;
+  top:0%;
+  left:0%;
+  z-index:9999;
+  height:100%;
+  width:100%;
+  background-color:rgba(255,255,255,0.7);
+}
+
+#loading {
+  position: absolute;
+  top:40%;
+  left:40%;
+}
